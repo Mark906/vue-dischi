@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Spotify - flex layout</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" charset="utf-8"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="top">
+                <aside>
+                    <div class="aside-class">
+                        <div class="logo">
+                            <a href="#"><img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png" alt=""></a>
+                        </div>
+                        <div class="menu">
+                            <ul>
+                                <li><a href="#"><i class="fas fa-search"></i>Cerca</a></li>
+                                <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
+                                <li><a href="#"><i class="fas fa-book-open"></i>La tua libreria</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="politica">
+                        <p><a href="#">Politica sui cookie</a></p>
+                        <p><a href="#">Privacy</a></p>
+                    </div>
+                </aside>
+
+                <main>
+                        <div class="title">
+                            <h1 @click="risposta()">{{title}}</h1>
+                        </div>
+
+                        <div class="filter">
+                            <select id="icons-filter">
+                                <option value="">All types</option>
+                                <option v-for="item in genere" value="">{{item}}</option>
+                            </select>
+                        </div>
+
+                        <div class="card-container">
+
+                            <div v-if="item.genre == selectedgenre" v-for="item in music" class="card">
+                                <a href="#">
+                                    <div class="img">
+                                        <img :src="item.poster" alt="">
+                                    </div>
+                                </a>
+                                <h3>{{item.title}}</h3>
+                                <p>{{item.author}}</p>
+                                <p>{{item.genre}}</p>
+                            </div>
+
+                        </div>
+
+                </main>
+            </div>
+
+            <footer>
+
+                <div class="footer-left">
+                    <div class="img-playbar">
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/91LHRcgC7NL._AC_SL1500_.jpg" alt="">
+                    </div>
+                    <div class="artist">
+                        <h3>AlbumTitle</h3>
+                        <p>SongTitle</p>
+                    </div>
+                    <div class="footer-left-icon">
+                        <i class="far fa-heart"></i>
+                    </div>
+                </div>
+
+                <div class="footer-center">
+                    <div class="riproduzione">
+                        <div class="icons">
+                            <a href="#"><i class="fas fa-random"></i></a>
+                            <a href="#"><i class="fas fa-step-backward"></i></a>
+                            <a href="#"><i class="fas fa-pause"></i></a>
+                            <a href="#"><i class="fas fa-step-forward"></i></a>
+                            <a href="#"><i class="fas fa-redo-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="timer">
+                        <span>1:27</span>
+                        <input class="slider" type="range">
+                        <span>3:10</span>
+                    </div>
+                </div>
+
+                <div class="footer-right">
+                        <i class="fas fa-list-ul"></i>
+                        <i class="fas fa-tv"></i>
+                        <i class="fas fa-volume-up"></i>
+                        <input class="slider" type="range">
+                </div>
+
+            </footer>
+        </div>
+        <script src="main.js" charset="utf-8"></script>
+    </body>
+</html>
