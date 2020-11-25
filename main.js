@@ -4,7 +4,7 @@ var app = new Vue ({
         music: [],
         genere: [],
         title: 'Elenco canzoni:',
-        selectedgenre: ''
+        selected: ''
     },
     mounted(){
         axios

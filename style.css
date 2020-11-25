@@ -105,6 +105,16 @@ main {
     margin-top: 10%;
 }
 
+#genre-filter {
+    margin-left: 2%;
+    border: none;
+    padding: 5px;
+    background-color: orange;
+    font-weight: bold;
+    color: deeppink;
+    letter-spacing: 1px;
+}
+
 .card-container {
     display: flex;
     flex-wrap: wrap;

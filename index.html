@@ -37,15 +37,15 @@
                         </div>
 
                         <div class="filter">
-                            <select id="icons-filter">
+                            <select v-model="selected" id="genre-filter">
                                 <option value="">All types</option>
-                                <option v-for="item in genere" value="">{{item}}</option>
+                                <option v-for="item in genere" :value="item">{{item}}</option>
                             </select>
                         </div>
 
                         <div class="card-container">
 
-                            <div v-if="item.genre == selectedgenre" v-for="item in music" class="card">
+                            <div v-for="item in music" v-if="item.genre == selected || selected == ''" class="card">
                                 <a href="#">
                                     <div class="img">
                                         <img :src="item.poster" alt="">
